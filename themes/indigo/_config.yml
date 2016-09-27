@@ -44,6 +44,7 @@ tags:
 excerpt_link: more
 mathjax: true
 archive_yearly: true
+fancybox: true
 
 #是否开启分享
 share: true
