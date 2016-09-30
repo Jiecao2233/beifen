@@ -18,14 +18,21 @@ menu:
     text: 标签
     url: /tags
   qq:
-    url: http://user.qzone.qq.com/925391454
+    text: QQ
+    url: http://925391454.qzone.qq.com/
     target: _blank
   weibo:
     url: http://weibo.com/u/5978707853
     target: _blank
-  link:
+  users:
     text: 友情链接
     url: /friends
+  comments:
+    text: 简介&&留言板
+    url: /myself
+  steam:
+    text: 游戏
+    url: /游戏人生
 
 
 	
