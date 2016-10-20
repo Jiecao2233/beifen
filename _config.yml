@@ -4,7 +4,7 @@
 
 # Site
 title: Jiecao
-subtitle: 哲♂学  感受宁静~~    嘿嘿嘿~~~
+subtitle: 奥义·哲♂学·比利王
 description:
 author: Jiecao
 language:
@@ -78,10 +78,10 @@ jsonContent:
     slug: false
     updated: false
     comments: false
-    link: false
+    link: true
     permalink: false
     excerpt: false
-    categories: false
+    categories: true
     tags: true
 
 # Admin

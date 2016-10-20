@@ -2,8 +2,10 @@
 title: FIFO队列与优先队列
 tags:
   - 队列
+  - STL
 categories:
   - 队列
+  - STL
 date: 2016-09-22 21:19:59
 ---
 
@@ -13,9 +15,8 @@ date: 2016-09-22 21:19:59
 <!--more-->
 
 ## 定义队列
-```C++
-#include<queue>
-```
+`#include<queue>`
+
 ### FIFO队列
 
 >queue <类型> 变量名
@@ -34,7 +35,9 @@ queue <data> c     //定义一个data（自定义数据类型）类型的名为c
 priority_queue <int> heap;      //定义一个int类型的名为heap的优先队列
 priority_queue <double> k;      //定义一个double类型的名为k的优先队列
 ```
-这两种定义方式都是大根堆，转为小根堆有两种方法，一是每个数据都乘以-1，二是自定义数据类型：
+这两种定义方式都是大根堆，转为小根堆有两种方法：
+一是每个数据都乘以-1；
+二是自定义数据类型：
 ```C++
 struct data{
 	int x;

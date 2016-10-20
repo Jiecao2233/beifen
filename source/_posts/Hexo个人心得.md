@@ -16,4 +16,4 @@ Hexo很好用的，向大家安利一下~~ 顺便记录一下Hexo的一些技巧
 
 <!--more-->
 
-## 安装
+首先感谢一下[Fancy](https://fancypei.github.io)的兹磁，在[Fancy](https://fancypei.github.io)的引（gu）导（huo）下我入坑了Hexo.
