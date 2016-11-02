@@ -19,4 +19,5 @@ title: Friends
    [Menci](https://men.ci/)
    [sxy](http://sxysxy.org//)
    [JJQ](http://jjq0811.com/)
+   [allamend(大家不要点这个，allamend不想让大家看，他要低调)](http://allamend.blog.163.com/)
    
