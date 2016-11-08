@@ -24,6 +24,9 @@ menu:
   weibo:
     url: http://weibo.com/u/5978707853
     target: _blank
+  twitter:
+    url: https://twitter.com/JiecaoWang
+    target: _blank
   users:
     text: 友情链接
     url: /friends

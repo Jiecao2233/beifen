@@ -14,39 +14,12 @@ date: 2016-10-16 21:33:39
 <!--more-->
 
 ## 快速幂
-```C++
-int power(int a,int b,int P)
-{
-    int re=1;
-    for(;b;b>>=1,a=a*a%P)
-        if(b&1) re=re*a%P;
-    return re;
-}
-```
+[快速幂(含于矩乘中)](/2016/10/31/矩阵乘法-（矩阵）快速幂-斐波那契/#1-了解一下快速幂)
 
 ## 最短路
 
 ### SPFA
-```C++
-memset(ds,0x7f,sizeof(ds));//不用memset，for一遍
-ds[S]=0; vis[S]=1; q.push(S);
-while(!q.empty())
-{
-    int x=q.front(); q.pop(); vis[x]=0;
-    for(int i=0;i<to[x].size();i++)
-    {
-        int y=to[x][i],c=cost[x][i];
-        if(ds[y]>ds[x]+c)
-        {
-            ds[y]=ds[x]+c;
-            if(!vis[y])
-            {
-                vis[y]=1; q.push(y);
-            }
-        }
-    }
-}
-```
+[SPFA](/2016/10/16/SPFA/)
 
 ### Dijkstra
 ```C++
@@ -125,6 +98,7 @@ int main()
 ## 背包问题
 
 ### 01背包
+二维：
 ```C++
 for(int i=1;i<=n;i++)
   for(int v=0;v<=m;v++)
@@ -132,7 +106,9 @@ for(int i=1;i<=n;i++)
   	if(v-w[i]>=0) f[i][v]=max(f[i-1][v],f[i-1][v-w[i]]+c[i]);
   	else f[i][v]=f[i-1][v];
   }
-  
+```
+一维：
+```C++
 for(int i=1;i<=n;i++)
   for(int v=m;v>=w[i];v--)
     f[v]=max(f[v],f[v-w[i]]+c[i]);
@@ -140,7 +116,7 @@ for(int i=1;i<=n;i++)
 
 ### 完全背包
 优化：拆成$w[i]\*2^k$ , $c[i]\*2^k$ 的若干件（其中$w[i]\*2^k$<V）
-
+二维：
 ```C++
 for(int i=1;i<=n;i++)
   for(int v=0;v<=m;v++)
@@ -148,7 +124,9 @@ for(int i=1;i<=n;i++)
   	if(v-w[i]>=0) f[i][v]=max(f[i-1][v],f[i][v-w[i]]+c[i]);
   	else f[i][v]=f[i-1][v];
   } 
-  
+```
+一维：
+```C++
 for(int i=1;i<=n;i++)
   for(int v=w[i];v<=m;v++)
     f[v]=max(f[v],f[v-w[i]]+c[i]);
@@ -156,6 +134,7 @@ for(int i=1;i<=n;i++)
 
 ### 多重背包
 优化：拆成1,2,4,…, $2^(k-1)$ , $n[i]-2^k+1$ （其中k为满足$n[i]-x^k+1$>0的最大整数)
+二维：
 ```C++
 for(int i=1;i<=n;i++)
   for(int v=0;v<=m;v++)
@@ -164,7 +143,9 @@ for(int i=1;i<=n;i++)
     	f[i][v]=max(f[i][v],f[i-1][v]);
   	    if(v-k*w[i]>=0) f[i][v]=max(f[i][v],f[i-1][v-k*w[i]]+k*c[i]);
     }
-    
+```
+一维：
+```C++
 for(int i=1;i<=n;i++)
   for(int v=m;v>=0;v--)
     for(int k=0;k<=num[i];k++)
