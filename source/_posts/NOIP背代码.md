@@ -165,7 +165,15 @@ int find(int x)
 	else fa[x]=find(fa[x]);
 }
 
-void un(int x,int y)
+//路径压缩
+int find(int x)
+{
+	if(x!=fa[x])
+		fa[x]=find(fa[x]);
+	return fa[x];
+}
+
+inline void un(int x,int y)
 {
 	fa[find(x)]=find(y);
 }
