@@ -179,6 +179,71 @@ inline void un(int x,int y)
 }
 ```
 
+## 最小生成树
+```C++
+#include<cstdio>
+#include<iostream>
+#include<algorithm>
+#define M 500500
+#define MAX 2147483647
+
+using namespace std;
+
+int n,m;
+int fa[M];
+struct E{
+	int to,from,w;
+}e[M];
+int tope,ans;
+inline void ae(int x,int y,int z)
+{
+	tope++;e[tope].to=y;e[tope].from=x;e[tope].w=z;
+}
+
+int cmp(E x,E y)
+{
+	return x.w<y.w;
+}
+
+inline int find(int x)
+{
+	if(x!=fa[x])
+		fa[x]=find(fa[x]);
+	return fa[x];
+}
+
+inline void un(int x,int y)
+{
+	fa[find(x)]=find(y);
+}
+
+int main()
+{
+	scanf("%d%d",&n,&m);
+	for(int i=1;i<=n;++i)
+	{
+		fa[i]=i;
+	}
+	int ta,tb,tc;
+	for(int i=1;i<=m;++i)
+	{
+		scanf("%d%d%d",&ta,&tb,&tc);
+		ae(ta,tb,tc);
+	}
+	sort(e+1,e+tope+1,cmp);
+	for(int i=1;i<=tope;++i)
+	{
+		if(find(e[i].to)!=find(e[i].from))
+		{
+			un(e[i].to,e[i].from);
+			ans+=e[i].w;
+		}
+	}
+	printf("%d",ans);
+	return 0;
+}
+```
+
 ## gcd
 ```C++
 int gcd(int a,int b)
