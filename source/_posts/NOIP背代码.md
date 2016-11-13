@@ -244,11 +244,58 @@ int main()
 }
 ```
 
-## gcd
+## gcd&&lcm
 ```C++
 int gcd(int a,int b)
 {
     return b==0?a:gcd(b,a%b);
+}
+
+int lcm(int a, int b) {
+	return a * b / gcd(a, b);
+}
+```
+
+## 高斯消元
+```C++
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int n,mark=0;
+double a[200][200],b[120],da[120];
+int main()
+{
+	scanf("%d",&n);
+	for(int i=1;i<=n;++i)
+	{
+		for(int j=1;j<=n+1;++j)
+		{
+			cin>>a[i][j];
+		}
+	}
+	for(int i=1;i<=n;++i)
+	{
+		if(a[i][n+1]==0) 
+		{
+			mark=1;
+			break;
+		}
+		for(int j=1;j<=n;++j)
+		{
+			if(j==i) continue;
+			double x=a[j][i]/a[i][i];
+			for(int k=1;k<=n+1;++k)
+			{
+				a[i][k]*=x;
+				a[j][k]=a[i][k]-a[j][k];
+			}
+		}
+	}
+	if(mark==1) printf("No Solution");
+	else 
+	for(int i=1;i<=n;++i) 
+	printf("%.2lf\n",a[i][n+1]/a[i][i]);
+	return 0;
 }
 ```
 
